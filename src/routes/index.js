@@ -10,7 +10,7 @@ import Header from "../governor-common/components/header/Header";
 import Footer from "../governor-common/components/footer/Footer";
 
 // LAZY IMPORT
-const Farm = lazy(() => import("../components/farm"));
+const Authentication = lazy(() => import("../components/authentication"));
 
 class Routes extends Component {
   render() {
@@ -20,7 +20,11 @@ class Routes extends Component {
           <OnPageChange>
             <Header />
             <Switch>
-              <Route exact path={"/"} render={() => <Farm {...this.props} />} />
+              <Route
+                exact
+                path={"/"}
+                render={() => <Authentication {...this.props} />}
+              />
               <Route
                 component={() => {
                   window.location.href = "https://governordao.org";

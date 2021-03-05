@@ -1,0 +1,31 @@
+import React, { Component } from "react";
+import Routes from "./routes";
+import { ToastContainer } from "react-toastify";
+import { X } from "react-feather";
+
+const Close = ({ closeToast }) => <X size={20} onClick={closeToast} />;
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isConnected: false };
+  }
+
+  componentDidMount() {}
+
+  render() {
+    return (
+      <>
+        <ToastContainer
+          position={"bottom-right"}
+          autoClose={3000}
+          closeButton={<Close />}
+          pauseOnFocusLoss={false}
+          draggable={true}
+          draggablePercent={25}
+        />
+        <Routes />
+      </>
+    );
+  }
+}
